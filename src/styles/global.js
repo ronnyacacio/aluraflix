@@ -23,6 +23,16 @@ body {
   padding: 0;
 }
 
+body {
+  --bodyPaddingTop: 94px;
+  padding-top: var(--bodyPaddingTop);
+  
+  @media (max-width: 800px) {
+    --bodyPaddingTop: 40px;
+    padding-top: var(--bodyPaddingTop);
+  }
+} 
+
 a {
   color: inherit;
 } 
