@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
@@ -7,8 +7,10 @@ import NotFound from './pages/NotFound';
 export default function Routes() {
   return (
     <BrowserRouter>
-      <Route exact path="/" component={Home} />
-      <Route component={NotFound} />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route component={NotFound} /> 
+      </Switch>
     </BrowserRouter>
   );
 }
