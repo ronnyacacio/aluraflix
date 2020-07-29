@@ -11,7 +11,7 @@ export default function Header() {
       <Link to="/">
         <img src={logo} alt="Aluraflix" />
       </Link>
-      <Link to="/">
+      <Link to="/new/video">
         <Button>Novo vídeo</Button>
       </Link>
     </Container>

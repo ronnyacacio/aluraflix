@@ -2,6 +2,8 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
+import Video from './pages/New/Video';
+import Category from './pages/New/Category';
 import NotFound from './pages/NotFound';
 
 export default function Routes() {
@@ -9,7 +11,9 @@ export default function Routes() {
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route component={NotFound} /> 
+        <Route path="/new/video" component={Video} />
+        <Route path="/new/category" component={Category} />
+        <Route component={NotFound} />
       </Switch>
     </BrowserRouter>
   );
