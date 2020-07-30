@@ -15,11 +15,11 @@ function Carousel({ ignoreFirstVideo, category }) {
 
   useEffect(() => {
     (async function loadVideos() {
-      const response = await api.get('videos');
+      const response = await api.get(`videos?category_id=${category.id}`);
 
       setVideos(response.data);
     })();
-  }, []);
+  }, [category.id]);
 
   return (
     <VideoCardGroupContainer>
