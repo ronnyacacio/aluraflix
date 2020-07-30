@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
+import api from '../../services/api';
 import Slider from './Slider';
 import VideoCard from './VideoCard';
 import {
@@ -10,37 +11,42 @@ import {
 } from './styles';
 
 function Carousel({ ignoreFirstVideo, category }) {
-  const categoryTitle = category.titulo;
-  const categoryColor = category.cor;
-  const categoryExtraLink = category.link_extra;
-  const videos = category.videos;
+  const [videos, setVideos] = useState([]);
+
+  useEffect(() => {
+    (async function loadVideos() {
+      const response = await api.get('videos');
+
+      setVideos(response.data);
+    })();
+  }, []);
 
   return (
     <VideoCardGroupContainer>
-      {categoryTitle && (
+      {category.title && (
         <>
-          <Title style={{ backgroundColor: categoryColor || 'red' }}>
-            {categoryTitle}
+          <Title style={{ backgroundColor: category.color || 'red' }}>
+            {category.title}
           </Title>
-          {categoryExtraLink && (
-            <ExtraLink href={categoryExtraLink.url} target="_blank">
-              {categoryExtraLink.text}
+          {category.link && (
+            <ExtraLink href={category.link.url} target="_blank">
+              {category.link.text}
             </ExtraLink>
           )}
         </>
       )}
       <Slider>
         {videos.map((video, index) => {
-          if (ignoreFirstVideo && index === 0) {
+          if (ignoreFirstVideo && index === 1) {
             return null;
           }
 
           return (
-            <SliderItem key={video.titulo}>
+            <SliderItem key={video.title}>
               <VideoCard
-                videoTitle={video.titulo}
+                videoTitle={video.title}
                 videoURL={video.url}
-                categoryColor={categoryColor}
+                categoryColor={category.color}
               />
             </SliderItem>
           );

@@ -1,33 +1,45 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-import api from '../../services/api.json';
+import api from '../../services/api';
 import { Header, BannerMain, Carousel, Footer } from '../../components';
 import { Container } from './styles';
 
 export default function Home() {
+  const [categories, setCategories] = useState([]);
+  const [video, setVideo] = useState(null);
+
+  useEffect(() => {
+    (async function loadData() {
+      const [responseCategory, responseVideo] = await Promise.all([
+        api.get('categories'),
+        api.get('videos/2'),
+      ]);
+      setCategories(responseCategory.data);
+      setVideo(responseVideo.data);
+    })();
+  }, []);
+
   return (
     <Container>
       <Header />
 
-      <BannerMain
-        videoTitle={api.categorias[0].videos[0].titulo}
-        url={api.categorias[0].videos[0].url}
-        videoDescription={
-          'O que é Front-end? Trabalhando na área os termos HTML, CSS e JavaScript fazem parte da rotina das desenvolvedoras e desenvolvedores. Mas o que eles fazem, afinal? Descubra com a Vanessa!'
-        }
-      />
+      {video && categories && (
+        <>
+          <BannerMain
+            videoTitle={video.title}
+            url={video.url}
+            videoDescription={
+              'O que é Front-end? Trabalhando na área os termos HTML, CSS e JavaScript fazem parte da rotina das desenvolvedoras e desenvolvedores. Mas o que eles fazem, afinal? Descubra com a Vanessa!'
+            }
+          />
 
-      <Carousel ignoreFirstVideo category={api.categorias[0]} />
+          <Carousel ignoreFirstVideo category={categories[0]} />
 
-      <Carousel category={api.categorias[1]} />
-
-      <Carousel category={api.categorias[2]} />
-
-      <Carousel category={api.categorias[3]} />
-
-      <Carousel category={api.categorias[4]} />
-
-      <Carousel category={api.categorias[5]} />
+          {categories.map((category) => (
+            <Carousel key={category.id} category={category} />
+          ))}
+        </>
+      )}
 
       <Footer />
     </Container>
