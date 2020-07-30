@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { Field } from '../../../components';
+import { Field, Button } from '../../../components';
 import Default from '../../../layouts/Default';
 
 export default function Category() {
@@ -57,7 +57,7 @@ export default function Category() {
           onChange={handleInputChange}
         />
 
-        <button type="submit">Cadastrar</button>
+        <Button type="submit">Cadastrar</Button>
       </form>
 
       <ul>
