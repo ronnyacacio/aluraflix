@@ -33,8 +33,6 @@ export default function Home() {
             }
           />
 
-          <Carousel ignoreFirstVideo category={categories[0]} />
-
           {categories.map((category) => (
             <Carousel key={category.id} category={category} />
           ))}

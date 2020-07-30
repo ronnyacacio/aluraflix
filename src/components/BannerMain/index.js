@@ -17,6 +17,10 @@ export default function BannerMain({ videoTitle, videoDescription, url }) {
   const youTubeID = getYouTubeId(url);
   const bgUrl = `https://img.youtube.com/vi/${youTubeID}/maxresdefault.jpg`;
 
+  function handleNavigateToVideo() {
+    window.open(url);
+  }
+
   return (
     <BannerMainContainer backgroundImage={bgUrl}>
       <ContentAreaContainer>
@@ -30,7 +34,7 @@ export default function BannerMain({ videoTitle, videoDescription, url }) {
 
         <ContentAreaContainer.Item>
           <VideoIframeResponsive youtubeID={youTubeID} />
-          <WatchButton>Assistir</WatchButton>
+          <WatchButton onClick={handleNavigateToVideo}>Assistir</WatchButton>
         </ContentAreaContainer.Item>
       </ContentAreaContainer>
     </BannerMainContainer>

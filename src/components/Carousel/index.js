@@ -10,7 +10,7 @@ import {
   SliderItem,
 } from './styles';
 
-function Carousel({ ignoreFirstVideo, category }) {
+function Carousel({ category }) {
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
@@ -36,21 +36,15 @@ function Carousel({ ignoreFirstVideo, category }) {
         </>
       )}
       <Slider>
-        {videos.map((video, index) => {
-          if (ignoreFirstVideo && index === 1) {
-            return null;
-          }
-
-          return (
-            <SliderItem key={video.title}>
-              <VideoCard
-                videoTitle={video.title}
-                videoURL={video.url}
-                categoryColor={category.color}
-              />
-            </SliderItem>
-          );
-        })}
+        {videos.map((video) => (
+          <SliderItem key={video.id}>
+            <VideoCard
+              videoTitle={video.title}
+              videoURL={video.url}
+              categoryColor={category.color}
+            />
+          </SliderItem>
+        ))}
       </Slider>
     </VideoCardGroupContainer>
   );
