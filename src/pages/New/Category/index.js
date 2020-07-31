@@ -1,22 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 // import api from '../../../services/api';
+import { useForm } from '../../../hooks/useForm';
 import { Field, Button } from '../../../components';
 import Default from '../../../layouts/Default';
 
 export default function Category() {
-  const [newCategory, setNewCategory] = useState({
+  const [newCategory, handleInputChange] = useForm({
     name: '',
     description: '',
     color: '#2A7AE4',
   });
-
-  function handleInputChange(e) {
-    const { name, value } = e.target;
-
-    setNewCategory((prevState) => ({ ...prevState, [name]: value }));
-  }
 
   async function handleSubmit(e) {
     e.preventDefault();
