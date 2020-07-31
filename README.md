@@ -49,10 +49,19 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [React](https://reactjs.org)
 - [React Router](https://reactrouter.com/web/guides/quick-start)
 - [Styled Components](https://styled-components.com/)
+- [React Slick](https://github.com/akiran/react-slick) para o Carousel
+- [Json Server](https://github.com/typicode/json-server)
+- [Axios](https://github.com/axios/axios)
 
 <br />
 
-## 🔨 Deploy Vercel
+## 🔨 Deploy API: Heroku
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://dashboard.heroku.com/apps/ronnyacacio-aluraflix)
+
+<br />
+
+## 🔨 Deploy WEB: Vercel
 
 [![Deploy with Vercel](https://vercel.com/button?color=000)](https://vercel.com/ronnyacacio/aluraflix)
 
