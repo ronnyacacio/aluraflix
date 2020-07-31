@@ -40,6 +40,15 @@
         "text": "Formação de Jogos na Alura",
         "url": "https://www.alura.com.br/cursos-online-front-end"
       }
+    },
+    {
+      "title": "Faculdade",
+      "color": "#e52a84",
+      "link": {
+        "text": "Cursos de programação funcional",
+        "url": "https://www.youtube.com/watch?v=1_C-rD6BLPs&list=PLPpVvPOjderu5Z0zJQimgAbguLJ8aDvkU"
+      },
+      "id": 6
     }
   ],
   "videos": [
