@@ -49,6 +49,15 @@
         "url": "https://www.youtube.com/watch?v=1_C-rD6BLPs&list=PLPpVvPOjderu5Z0zJQimgAbguLJ8aDvkU"
       },
       "id": 6
+    },
+    {
+      "title": "",
+      "color": "#2A7AE4",
+      "link": {
+        "text": "",
+        "url": ""
+      },
+      "id": 7
     }
   ],
   "videos": [
@@ -195,6 +204,12 @@
       "category_id": 5,
       "title": "Resident Evil 8",
       "url": "https://www.youtube.com/watch?v=JSapXD9vxYA"
+    },
+    {
+      "title": "Jogo com JavaScript #01: Criando um Flappy Bird do ZERO!!!",
+      "url": "https://www.youtube.com/watch?v=jOAU81jdi-c",
+      "category_id": 1,
+      "id": 25
     }
   ]
 }
